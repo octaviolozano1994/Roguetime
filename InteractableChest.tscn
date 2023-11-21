@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw56wc05isy6s"]
+
+[ext_resource type="Script" path="res://Chest.gd" id="1_ab3ur"]
+[ext_resource type="Texture2D" uid="uid://b078kkerdvrbh" path="res://Items/Item_Assets/Chests/chest_1.png" id="1_c3cqf"]
+[ext_resource type="Texture2D" uid="uid://lwsegeuwh7fu" path="res://Items/Item_Assets/Chests/chest_open_1.png" id="2_k1wjp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rspgh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_c3cqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_k1wjp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="InteractableChest" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rspgh")
+frame_progress = 0.129905
+script = ExtResource("1_ab3ur")
