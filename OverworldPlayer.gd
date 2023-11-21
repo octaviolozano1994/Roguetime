@@ -10,7 +10,6 @@ var timeline_index = 0
 func _ready():
 	target_position = Vector2(24, 24)
 	get_parent().timeline = []
-	$AnimatedSprite2D.play("default")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
