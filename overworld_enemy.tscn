@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://cywfneym0dx2d"]
+
+[ext_resource type="Script" path="res://overworld_enemy.gd" id="1_02ty6"]
+[ext_resource type="Texture2D" uid="uid://b0kl0sdxk2d45" path="res://skull_v1_1.png" id="1_kww05"]
+[ext_resource type="Texture2D" uid="uid://b6wfkoabq6sp6" path="res://skull_v1_2.png" id="2_mihqf"]
+[ext_resource type="Texture2D" uid="uid://dybtax1ljcg4x" path="res://skull_v1_3.png" id="3_18nva"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rp7lu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7g50w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kww05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mihqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_18nva")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="OverworldEnemy" type="Node2D"]
+script = ExtResource("1_02ty6")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_rp7lu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7g50w")
+frame_progress = 0.172318
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 16)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
