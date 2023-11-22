@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw56wc05isy6s"]
+[gd_scene load_steps=6 format=3 uid="uid://bw56wc05isy6s"]
 
 [ext_resource type="Script" path="res://Chest.gd" id="1_ab3ur"]
 [ext_resource type="Texture2D" uid="uid://b078kkerdvrbh" path="res://Items/Item_Assets/Chests/chest_1.png" id="1_c3cqf"]
 [ext_resource type="Texture2D" uid="uid://lwsegeuwh7fu" path="res://Items/Item_Assets/Chests/chest_open_1.png" id="2_k1wjp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rabl"]
+size = Vector2(14, 13)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rspgh"]
 animations = [{
@@ -19,6 +22,12 @@ animations = [{
 }]
 
 [node name="InteractableChest" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_7rabl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rspgh")

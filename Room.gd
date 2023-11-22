@@ -14,6 +14,9 @@ func rand_range(_min, _max):
 	print(random_value)
 	return random_value
 
+func load_interactables():
+	load("res://InteractableChest.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var taken_positions = []
@@ -31,20 +34,27 @@ func _ready():
 	var used_rect_starting_position = used_rect.position
 	var used_rect_size = used_rect.size
 
-	#Place the player on a random tile
+	var min_x = 1	#used_rect_starting_position.x
+	var max_x = 16 	#used_rect_size - used_rect_starting_position.x
+	var min_y = 1	#used_rect_starting_position.x
+	var max_y = 9	#used_rect_size - used_rect_starting_position.x
 
+	var chest = get_node("InteractableChest")
+
+	var random_x_chest = rand_range(min_x, max_x) 
+	var random_y_chest = rand_range(min_y, max_y)
+
+	chest.position.x = random_x_chest * tile_w + offset_w
+	chest.position.y = random_y_chest * tile_h + offset_h
+
+	#Place the player on a random tile
 	var player = get_node("OverworldPlayer");
 
-	var min_x = 1#used_rect_starting_position.x
-	var max_x = 16#used_rect_size - used_rect_starting_position.x
-	var random_x = rand_range(min_x, max_x)
-
-	var min_y = 1#used_rect_starting_position.x
-	var max_y = 9#used_rect_size - used_rect_starting_position.x
-	var random_y = rand_range(min_y, max_y)	
-
-	player.position.x = random_x * tile_w + offset_w
-	player.position.y = random_y * tile_h + offset_h
+	var random_x_player = rand_range(min_x, max_x)
+	var random_y_player = rand_range(min_y, max_y)	
+	
+	player.position.x = random_x_player * tile_w + offset_w
+	player.position.y = random_y_player * tile_h + offset_h
 
 	player.target_position = player.position
 
@@ -55,18 +65,18 @@ func _ready():
 	var enemy = enemy_scene.instantiate()
 	add_child(enemy)
 
-	random_x = rand_range(min_x, max_x)
-	random_y = rand_range(min_y, max_y)
+	var random_x_enemy = rand_range(min_x, max_x)
+	var random_y_enemy = rand_range(min_y, max_y)
 
-	enemy.position.x = random_x *  tile_w + offset_w
-	enemy.position.y = random_y * tile_h + offset_h
+	enemy.position.x = random_x_enemy *  tile_w + offset_w
+	enemy.position.y = random_y_enemy * tile_h + offset_h
 
 	while enemy.position in taken_positions:
-		random_x = rand_range(min_x, max_x)
-		random_y = rand_range(min_y, max_y)
+		random_x_enemy = rand_range(min_x, max_x)
+		random_y_enemy = rand_range(min_y, max_y)
 
-		enemy.position.x = random_x
-		enemy.position.y = random_y
+		enemy.position.x = random_x_enemy
+		enemy.position.y = random_y_enemy
 
 	enemy.target_position = enemy.position
 

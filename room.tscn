@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdubt5mb7bv1s"]
+[gd_scene load_steps=8 format=3 uid="uid://bdubt5mb7bv1s"]
 
 [ext_resource type="Script" path="res://Room.gd" id="1_hd135"]
 [ext_resource type="Texture2D" uid="uid://d0452faed1dsr" path="res://Tilesets/Dungeon_Tileset.png" id="2_acufw"]
 [ext_resource type="PackedScene" uid="uid://buf1r5v7kena1" path="res://overworld_player.tscn" id="3_4iy5p"]
 [ext_resource type="PackedScene" uid="uid://bw56wc05isy6s" path="res://InteractableChest.tscn" id="4_vfpdg"]
+[ext_resource type="Script" path="res://InteractableChest.gd" id="5_aln4r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pkl1v"]
 texture = ExtResource("2_acufw")
@@ -376,3 +377,4 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 65536, 0, 2, 131072, 0, 3, 1966
 position = Vector2(-80, 0)
 
 [node name="InteractableChest" parent="." instance=ExtResource("4_vfpdg")]
+script = ExtResource("5_aln4r")
