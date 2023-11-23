@@ -6,29 +6,29 @@ var rewind_index = 0
 var rewinding = false
 
 func CreateFrame():
-    timeline[GetTimelineLength()] = [] 
+	timeline.append([])
 
 func GetTimelineLength():
-    return timeline.size()
+	return timeline.size()
 
 func GetActionCount(_index):
-    return timeline[_index].size()    
+	return timeline[_index].size()    
 
 func AddAction(action):
-    #Check if the frame has been created
-    if !frame_created:
-        CreateFrame()
-        frame_created = true
+	#Check if the frame has been created
+	if !frame_created:
+		CreateFrame()
+		frame_created = true
 
-    timeline[GetTimelineLength() - 1].append(action)
+	timeline[GetTimelineLength() - 1].append(action)
 
 func StartRewind():
-    rewind_index = GetTimelineLength()
-    rewinding = true
+	rewind_index = GetTimelineLength()
+	rewinding = true
 
 func CheckRewind():
-    if Input.is_action_pressed("Rewind"):
-        StartRewind()
+	if Input.is_action_pressed("Rewind"):
+		StartRewind()
 
 func ProcessRewind():
-    pass
+	pass

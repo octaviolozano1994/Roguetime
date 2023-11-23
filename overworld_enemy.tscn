@@ -40,5 +40,3 @@ frame_progress = 0.172318
 target_position = Vector2(0, 16)
 
 [node name="Timer" type="Timer" parent="."]
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
