@@ -7,7 +7,8 @@ var tile_h
 var offset_h = 8
 var offset_w = 8
 
-var timeline = []
+var input_handler = 
+var timeline_handler = 
 
 func rand_range(_min, _max):
 	var random_value = randi() % (_max - _min + 1) + _min
