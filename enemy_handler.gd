@@ -59,14 +59,14 @@ func MoveEnemies():
 				
 		var i = 0
 		for frame in TimelineHandler.timeline:
-			print("Frame #")
-			print(i)
+			#print("Frame #")
+			#print(i)
 
 			var j = 0
 			for action in frame:
-				print("Action #")
-				print(j)
-				print(action)
+				#print("Action #")
+				#print(j)
+				#print(action)
 				j += 1
 			
 			i += 1

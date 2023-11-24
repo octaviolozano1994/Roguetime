@@ -40,6 +40,9 @@ func move_towards_target(delta):
 		position = target_position
 		moving = false
 
+		if TimelineHandler.rewinding:
+			TimelineHandler.waitlist[name] = true
+
 #Check if the movement is valid
 func CheckMovement(_direction, _opposite_direction):
 	#Move and update the raycast for movement collision

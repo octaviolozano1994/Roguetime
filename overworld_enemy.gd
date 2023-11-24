@@ -20,6 +20,9 @@ func move_towards_target(delta):
 		position = target_position
 		moving = false
 
+		if TimelineHandler.rewinding:
+			TimelineHandler.waitlist[name] = true
+
 func _process(delta):
 	if moving:
 		move_towards_target(delta)
